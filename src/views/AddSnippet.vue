@@ -47,6 +47,7 @@ export default {
       AxiosService.addSnippet(this.title, this.content)
         .then(response => {
           console.log('Submitted successfully')
+          this.$router.push({ name: 'LatestSnippets' })
         })
         .catch(error => {
           console.log('There was an error: ', error.response)

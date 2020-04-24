@@ -6,6 +6,7 @@
         v-for="snippet in snippetList"
         :key="snippet.id"
         v-bind:snippet="snippet"
+        @removed-snippet="getSnippets"
       />
     </div>
   </div>
@@ -31,6 +32,7 @@ export default {
     getSnippets() {
       AxiosService.latestSnippets()
         .then(response => {
+          this.snippetList = []
           response.data.forEach(data =>
             this.snippetList.push({
               id: data.id,
