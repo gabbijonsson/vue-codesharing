@@ -7,10 +7,17 @@ const apiClient = axios.create({
 
 export default {
   addSnippet(title, content) {
-    return apiClient.post(`?add&title=${title}&content=${content}`)
+    return apiClient.post('?add', {
+      add: '',
+      title: title,
+      content: content
+    })
   },
   removeSnippet(id) {
-    return apiClient.post(`?delete&id=${id}`)
+    return apiClient.post('?delete', {
+      delete: '',
+      id: id
+    })
   },
   latestSnippets() {
     return apiClient.get(`?latest`)
